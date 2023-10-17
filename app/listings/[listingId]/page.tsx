@@ -8,6 +8,11 @@ import EmptyState from "@/app/components/EmptyState";
 
 import ListingClient from "./ListingClient";
 
+var regions = require("us-regions");
+
+console.log(regions)
+
+
 interface IParams {
   listingId?: string;
 }

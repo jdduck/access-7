@@ -4,6 +4,7 @@ import qs from 'query-string';
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 import { IconType } from "react-icons";
+import Button from './Button';
 
 interface CategoryBoxProps {
   icon: IconType,
@@ -39,26 +40,26 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
       url: '/',
       query: updatedQuery
     }, { skipNull: true });
-
+    
     router.push(url);
   }, [label, router, params]);
-
-  return ( 
-    <div
+  
+  return (
+    <div      
       onClick={handleClick}
       className={`
-        flex 
-        flex-col 
-        items-center 
-        justify-center 
-        gap-2
-        p-3
-        border-b-2
-        hover:text-neutral-800
-        transition
-        cursor-pointer
-        ${selected ? 'border-b-neutral-800' : 'border-transparent'}
-        ${selected ? 'text-neutral-800' : 'text-neutral-500'}
+        // flex 
+        // flex-col 
+        // items-center 
+        // justify-center 
+        // gap-2
+        // p-3
+        // border-b-2
+        // hover:text-neutral-800
+        // transition
+        // cursor-pointer
+        // ${selected ? 'border-b-neutral-800' : 'border-transparent'}
+        // ${selected ? 'text-neutral-800' : 'text-neutral-500'}
       `}
     >
       <Icon size={26} />
@@ -66,7 +67,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         {label}
       </div>
     </div>
-   );
+  );
 }
  
 export default CategoryBox;
