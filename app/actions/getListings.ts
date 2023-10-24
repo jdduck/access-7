@@ -11,9 +11,7 @@ export interface IListingsParams {
   category?: string;
 }
 
-export default async function getListings(
-  params: IListingsParams
-) {
+export default async function getListings(params: IListingsParams) {
   try {
     const {
       userId,
@@ -28,35 +26,12 @@ export default async function getListings(
 
     let query: any = {};
 
-    if (userId) {
-      query.userId = userId;
-    }
-
-    if (category) {
-      query.category = category;
-    }
-
-    if (roomCount) {
-      query.roomCount = {
-        gte: +roomCount
-      }
-    }
-
-    if (guestCount) {
-      query.guestCount = {
-        gte: +guestCount
-      }
-    }
-
-    if (bathroomCount) {
-      query.bathroomCount = {
-        gte: +bathroomCount
-      }
-    }
-
-    if (locationValue) {
-      query.locationValue = locationValue;
-    }
+    if (userId) {query.userId = userId}
+    if (category) {query.category = category}
+    if (roomCount) {query.roomCount = {gte: +roomCount}}
+    if (guestCount) {query.guestCount = {gte: +guestCount}}
+    if (bathroomCount) {query.bathroomCount = {gte: +bathroomCount}}
+    if (locationValue) {query.locationValue = locationValue}
 
     if (startDate && endDate) {
       query.NOT = {

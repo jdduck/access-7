@@ -8,7 +8,6 @@ import { MdOutlineVilla } from 'react-icons/md';
 import CategoryBox from "../CategoryBox";
 import Container from '../Container';
 
-
 export const categories = [
   {
     label: 'Community',
@@ -48,27 +47,27 @@ const Categories = () => {
   }
 
   return (
+    <>
+        <div className="w-[25rem] align-middle p-4">
+          <div className="bg-red-700 text-white ml-2 p-2">
+            <p className="text-xl">What are you searching for?</p>
+            <p>Please select a category</p>
+          </div>
+      </div>
     <Container>
-      <div
-        className="
-          pt-4
-          flex 
-          flex-row 
-          items-center 
-          justify-between
-          overflow-x-auto
-        "
-      >
+      <div className="pt-4 flex flex-row flex-grow items-center justify-evenly overflow-x-auto" >
         {categories.map((item) => (
           <CategoryBox 
             key={item.label}
             label={item.label}
             icon={item.icon}
+            description={item.description}
             selected={category === item.label}
           />
         ))}
       </div>
     </Container>
+    </>
   );
 }
  
