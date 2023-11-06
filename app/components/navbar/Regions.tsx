@@ -44,13 +44,15 @@ const Regions = () => {
   }
 
   return (
-    <div className="pt-4 flex flex-row flex-grow items-center justify-evenly overflow-x-auto">
+    <div className="flex flex-row flex-grow items-center justify-evenly overflow-x-auto">
+    
       <div className="w-[25rem] align-middle p-4">
           <div className="bg-red-700 text-white ml-2 p-2">
             <p className="text-xl">Where would you like to search ?</p>
             <p>Please select a region</p>
           </div>
       </div>
+      <div className="pt-4 flex flex-row flex-grow items-center justify-evenly overflow-x-auto" >
       {regions.map((item) => (
         <CategoryBox 
           key={item.label}
@@ -59,7 +61,9 @@ const Regions = () => {
           description={item.description}
           selected={region === item.label}
         />
-      ))}
+      ))
+    } 
+    </div>   
     </div>
   );
 }

@@ -54,7 +54,6 @@ const Categories = () => {
             <p>Please select a category</p>
           </div>
       </div>
-    <Container>
       <div className="pt-4 flex flex-row flex-grow items-center justify-evenly overflow-x-auto" >
         {categories.map((item) => (
           <CategoryBox 
@@ -66,7 +65,6 @@ const Categories = () => {
           />
         ))}
       </div>
-    </Container>
     </>
   );
 }
