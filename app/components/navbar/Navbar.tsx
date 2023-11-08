@@ -1,7 +1,6 @@
 import { SafeUser } from "@/app/types";
 
 import Logo from "./Logo";
-import Search from "./Search";
 import UserMenu from "./UserMenu";
 import { FcGoogle } from "react-icons/fc";
 import LgSearchBar from "./LgSearchBar";
@@ -18,7 +17,6 @@ const Navbar: React.FC<NavbarProps> = ({
       <div className="py-4 border-b-[1px]">
         <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
           <Logo />
-          {/* <Search /> */}
           <UserMenu currentUser={currentUser} />
         </div>
       </div>

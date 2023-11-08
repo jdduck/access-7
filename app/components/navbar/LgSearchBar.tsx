@@ -4,7 +4,7 @@ import Regions from './Regions'
 import Categories from './Categories'
 
 const LgSearchBar: React.FC<any> = () => {
-  const [switchBox, setSwitchBox] = useState(false)
+  const [switchBox, setSwitchBox] = useState(true)
 
   return (
     <div className="flex align-middle">

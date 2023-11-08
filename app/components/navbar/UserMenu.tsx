@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
-import useRentModal from "@/app/hooks/useRentModal";
+import useNewListingModal from "@/app/hooks/useNewListingModal";
 import { SafeUser } from "@/app/types";
 
 import MenuItem from "./MenuItem";
@@ -24,7 +24,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
 
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
-  const rentModal = useRentModal();
+  const rentModal = useNewListingModal();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,7 +32,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
     setIsOpen((value) => !value);
   }, []);
 
-  const onRent = useCallback(() => {
+  const onNewListing = useCallback(() => {
     if (!currentUser) {
       return loginModal.onOpen();
     }
@@ -44,7 +44,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div 
-          onClick={onRent}
+          onClick={onNewListing}
           className="
             hidden
             md:block

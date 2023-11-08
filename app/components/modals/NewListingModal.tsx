@@ -2,16 +2,12 @@
 
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import { 
-  FieldValues, 
-  SubmitHandler, 
-  useForm
-} from 'react-hook-form';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/navigation';
 import { useMemo, useState } from "react";
 
-import useRentModal from '@/app/hooks/useRentModal';
+import useNewListingModal from '@/app/hooks/useNewListingModal';
 
 import Modal from "./Modal";
 import Counter from "../inputs/Counter";
@@ -31,9 +27,9 @@ enum STEPS {
   PRICE = 5,
 }
 
-const RentModal = () => {
+const NewListingModal = () => {
   const router = useRouter();
-  const rentModal = useRentModal();
+  const rentModal = useNewListingModal();
 
   const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState(STEPS.CATEGORY);
@@ -276,4 +272,4 @@ const RentModal = () => {
   );
 }
 
-export default RentModal;
+export default NewListingModal;
