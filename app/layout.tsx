@@ -30,7 +30,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeFnDDOIsr__VIv1J8MM1DCWeBNX3Qhqo&callback=Function.prototype&libraries=places"></script>      
+      <script async src="https://maps.googleapis.com/maps/api/js?key=API KEY HERE &callback=Function.prototype&libraries=places"></script>      
       
       <body className={font.className}>
         <ClientOnly>
