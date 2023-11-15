@@ -12,11 +12,12 @@ import useNewListingModal from '@/app/hooks/useNewListingModal';
 import Modal from "./Modal";
 import Counter from "../inputs/Counter";
 import CategoryInput from '../inputs/CategoryInput';
-import CountrySelect from "../inputs/CountrySelect";
 import { categories } from '../navbar/Categories';
 import ImageUpload from '../inputs/ImageUpload';
 import Input from '../inputs/Input';
 import Heading from '../Heading';
+import AddressField from '../inputs/Address';
+import { GoogleMaps } from '../GoogleMaps';
 
 enum STEPS {
   CATEGORY = 0,
@@ -63,11 +64,6 @@ const NewListingModal = () => {
   const roomCount = watch('roomCount');
   const bathroomCount = watch('bathroomCount');
   const imageSrc = watch('imageSrc');
-
-  const Map = useMemo(() => dynamic(() => import('../Map'), { 
-    ssr: false 
-  }), []);
-
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -153,11 +149,9 @@ const NewListingModal = () => {
           title="Where is your place located?"
           subtitle="Help guests find you!"
         />
-        <CountrySelect 
-          value={location} 
-          onChange={(value) => setCustomValue('location', value)} 
-        />
-        <Map center={location?.latlng} />
+        <AddressField />
+          <GoogleMaps/>
+        {/* <Map center={location?.latlng} /> */}
       </div>
     );
   }

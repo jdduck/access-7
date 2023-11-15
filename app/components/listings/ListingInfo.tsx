@@ -8,10 +8,11 @@ import { SafeUser } from "@/app/types";
 
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
+import { GoogleMaps } from "../GoogleMaps";
 
-const Map = dynamic(() => import('../Map'), { 
-  ssr: false 
-});
+// const Map = dynamic(() => import('../Map'), { 
+//   ssr: false 
+// });
 
 interface ListingInfoProps {
   user: SafeUser,
@@ -90,7 +91,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
         {description}
       </div>
       <hr />
-      <Map center={coordinates} />
+      <GoogleMaps />
     </div>
    );
 }

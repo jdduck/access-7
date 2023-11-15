@@ -5,8 +5,6 @@ import EmptyState from "@/app/components/EmptyState";
 import getListings, {IListingsParams} from "@/app/actions/getListings";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import ClientOnly from "./components/ClientOnly";
-import { GoogleMapsWrapper } from "./components/GoogleMapsWrapper";
-import { GoogleMaps } from "./components/GoogleMaps";
 
 interface HomeProps {
   searchParams: IListingsParams
@@ -36,9 +34,6 @@ const Home = async ({ searchParams }: HomeProps) => {
             />
           ))}
         </div>
-        <GoogleMapsWrapper>
-          <GoogleMaps/>
-        </GoogleMapsWrapper>
         
       </Container>
     </ClientOnly>

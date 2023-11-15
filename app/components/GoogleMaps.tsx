@@ -23,5 +23,5 @@ export const GoogleMaps = () => {
       ref={ref}
       style={{ width: "700px", height: "400px" }}
     />
-  );
+  )
 };

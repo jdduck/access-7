@@ -27,8 +27,11 @@ export default async function RootLayout({
 }) {
   const currentUser = await getCurrentUser();
 
+
   return (
     <html lang="en">
+      <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeFnDDOIsr__VIv1J8MM1DCWeBNX3Qhqo&callback=Function.prototype&libraries=places"></script>      
+      
       <body className={font.className}>
         <ClientOnly>
           <ToasterProvider />
@@ -41,6 +44,7 @@ export default async function RootLayout({
           {children}
         </div>
       </body>
+      
     </html>
   )
 }
