@@ -16,8 +16,8 @@ import { categories } from '../navbar/Categories';
 import ImageUpload from '../inputs/ImageUpload';
 import Input from '../inputs/Input';
 import Heading from '../Heading';
-import AddressField from '../inputs/Address';
 import { GoogleMaps } from '../GoogleMaps';
+import AddressInput from '../inputs/AddressInput';
 
 enum STEPS {
   CATEGORY = 0,
@@ -149,9 +149,7 @@ const NewListingModal = () => {
           title="Where is your place located?"
           subtitle="Help guests find you!"
         />
-        <AddressField />
-          <GoogleMaps/>
-        {/* <Map center={location?.latlng} /> */}
+        <AddressInput />
       </div>
     );
   }

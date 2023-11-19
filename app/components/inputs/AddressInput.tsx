@@ -2,13 +2,11 @@
 
 import PlacesAutocomplete, { geocodeByAddress, getLatLng} from "react-places-autocomplete";
 import { useState } from "react";
+import { GoogleMaps } from "../GoogleMaps";
 
-export default function AddressField() {
+export default function AddressInput() {
   const [address, setAddress] = useState("");
-  const [coordinates, setCoordinates] = useState({
-    lat: 0,
-    lng: 0
-  });
+  const [coordinates, setCoordinates] = useState({lat: 38.276463, lng: -104.604607});
 
   const handleSelect = async (value:any) => {
     const results = await geocodeByAddress(value);
@@ -16,6 +14,13 @@ export default function AddressField() {
     setAddress(value);
     setCoordinates(latLng);
   };
+
+  type AutoChildren = {
+    value: string
+    onChange: ((value: string) => void)
+    onSelect: ((address: string, placeID: string) => void) | undefined
+    children?: JSX.Element|JSX.Element[]
+  }
 
   return (
     <div>
@@ -35,22 +40,24 @@ export default function AddressField() {
               {loading ? <div>...loading</div> : null}
 
               {suggestions.map(suggestion => {
-                const style = {
-                  backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
-                };
-                console.log(suggestion.id)
+                const style = {backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
+                };                
                 return (
-                  <div key={suggestion.id}>
+                  <>
+                  <div key={suggestion.placeId}>
                     <div {...getSuggestionItemProps(suggestion,{ style })}>
                       {suggestion.description}
                     </div>
                   </div>                  
+                  <p> {coordinates.lat} {coordinates.lng} </p>
+                  </>
                 );
               })}
             </div>
           </div>
         )}
       </PlacesAutocomplete>
+        <GoogleMaps {...coordinates}/>    
     </div>
   );
 }
