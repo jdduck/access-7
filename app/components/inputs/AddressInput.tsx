@@ -12,15 +12,9 @@ export default function AddressInput() {
     const results = await geocodeByAddress(value);
     const latLng = await getLatLng(results[0]);
     setAddress(value);
+    console.log(value)
     setCoordinates(latLng);
   };
-
-  type AutoChildren = {
-    value: string
-    onChange: ((value: string) => void)
-    onSelect: ((address: string, placeID: string) => void) | undefined
-    children?: JSX.Element|JSX.Element[]
-  }
 
   return (
     <div>
@@ -30,11 +24,9 @@ export default function AddressInput() {
         onSelect={handleSelect}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-            <p>Latitude: {coordinates.lat}</p>
-            <p>Longitude: {coordinates.lng}</p>
-
-            <input {...getInputProps({ placeholder: "Type address" })} />
+          <div className="absolute z-50 w-5/6">
+            <input {...getInputProps({ placeholder: "Type address" })}
+              className="w-5/6 z-40 h-12 pl-4 fixed"           />
 
             <div>
               {loading ? <div>...loading</div> : null}
@@ -43,14 +35,11 @@ export default function AddressInput() {
                 const style = {backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
                 };                
                 return (
-                  <>
                   <div key={suggestion.placeId}>
                     <div {...getSuggestionItemProps(suggestion,{ style })}>
                       {suggestion.description}
                     </div>
                   </div>                  
-                  <p> {coordinates.lat} {coordinates.lng} </p>
-                  </>
                 );
               })}
             </div>

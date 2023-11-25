@@ -146,8 +146,8 @@ const NewListingModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Where is your place located?"
-          subtitle="Help guests find you!"
+          title="Where is your property located?"
+          subtitle=""
         />
         <AddressInput />
       </div>
